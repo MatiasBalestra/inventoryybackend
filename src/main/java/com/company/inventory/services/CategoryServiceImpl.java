@@ -6,7 +6,7 @@ import com.company.inventory.model.Category;
 import com.company.inventory.response.CategoryResponseRest;
 
 
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -17,11 +17,9 @@ import java.util.List;
 @Service
 public class CategoryServiceImpl implements ICategoryService {
 
-    private final ICategoryDao categoryDao;
+    @Autowired
+    private ICategoryDao categoryDao;
 
-    public CategoryServiceImpl(ICategoryDao categoryDao) {
-        this.categoryDao = categoryDao;
-    }
 
 
     @Transactional(readOnly = true)
