@@ -68,11 +68,26 @@ public class ProductRestController {
     }
 
 
-
+    /***
+     * search by name
+     * @param name
+     * @return
+     */
 
     @GetMapping("/products/filter/{name}")
     public ResponseEntity<ProductResponseRest> searchByName(@PathVariable String name) {
         ResponseEntity<ProductResponseRest> response = productService.searchByName(name);
+        return response;
+    }
+
+    /***
+     * delete by id
+     * @param id
+     * @return
+     */
+    @DeleteMapping("/products/{id}")
+    public ResponseEntity<ProductResponseRest> deleteById(@PathVariable Long id) {
+        ResponseEntity<ProductResponseRest> response = productService.deleteById(id);
         return response;
     }
 
